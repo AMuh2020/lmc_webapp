@@ -3,8 +3,9 @@ Get the compiled LMC emulator from here (recommend unix OS)
 
 optional create virtualenvironment
 
+```
 pip install django
-run 
+```
 ```bash
 python3 manage.py runserver
 ```
