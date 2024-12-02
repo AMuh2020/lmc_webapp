@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMC run test 1-999</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="h-100 w-100">
+    <h1>RUNS LMC TESTS 1-999</h1>
+    <h2>By AMAL</h2>
+    <h3>Instructions</h3>
+    <ol>
+        <li>Upload COMPILED lmc, <a href="/howto">click here to find out how to compile it</a></li>
+        <li>Click submit</li>
+        <li>View results</li>
+        <li>Navigate to <a href="https://amuh.github.io/links.html">here</a> and follow on all socials</li>
+    </ol>
+    <form action="/test/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        file: <input type="file" name="lmc_file" id="file">
+        <input type="submit" value="Submit">
+    </form>
+    {% if results %}
+    <h2>Results</h2>
+    Took {{ time_taken }} seconds to run all tests
+    <!-- if statement based on var called passed -->
+    {% if passed %}
+        <h3>All tests passed</h3>
+    {% elif passed == False %}
+        <h3>Some tests failed</h3>
+    {% endif %}
+    
+    <!-- table to display results -->
+    <table class="table">
+        <tr>
+            <th>Input</th>
+            <th>pass/fail</th>
+            <th>Output</th>
+            <th>expected output</th>
+        </tr>
+        <!-- loop through results -->
+        {% for result in results %}
+            <tr>
+                <td>{{ result.i }}</td>
+                {% if result.passed %}
+                    <td>pass</td>
+                {% else %}
+                    <td>fail</td>
+                {% endif %}
+                <td>{{ result.output }}</td>
+                <td>{{ result.expected_output }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
