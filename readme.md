@@ -73,7 +73,7 @@ The application tests LMC programs using the Collatz Conjecture sequence as the 
 
 ### Prerequisites
 
-1.  Get the compiled LMC emulator from here (Unix OS recommended):
+1.  Get the compiled LMC emulator by following the instructions here:
     [https://github.com/jdf18/LMC\_Emulator](https://github.com/jdf18/LMC_Emulator)
 
 2.  Move the compiled LMC file (`LMCEmulator`) to the `lmc_app` directory.
@@ -83,7 +83,7 @@ The application tests LMC programs using the Collatz Conjecture sequence as the 
 1.  **Clone the repository**
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/AMuh2020/lmc_webapp.git
     cd lmc_webapp
     ```
 
